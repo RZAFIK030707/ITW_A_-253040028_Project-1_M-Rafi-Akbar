@@ -1,0 +1,380 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montsserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #00fbff;
+    color: #000000;
+}
+
+nav {
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(15,23,42, 0.9);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+nav a {
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.logo h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+.hamburger {
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    transform: translateY(-100%);
+    transition: trasform 0.3s ease;
+}
+
+.mobile-menu.active {
+    transform: translateY(0)
+}
+
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+    .mobile-menu {
+        transform: translateY(0);
+        position: static;
+        display: flex;
+    }
+    .mobile-menu a {
+        border: none;
+    }
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap:30px;
+}
+
+nav  ul li a {
+    text-decoration: none;
+    color: #e5e7eb;
+    font-weight: 500;
+    transition: 5s;
+}
+
+nav  ul li a:hover {
+    color: #38bdf8;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -5px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #F9FAFB;
+    border-radius: 3px;
+    transition: all 1s ease;
+}
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin:0 100% ;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    width: 0;
+    height: 0;
+    margin: 0;
+    border-left: 12px transparent;
+    border-right: 12px transparent ;
+    border-top: 12px transparent;
+    background-color: #38bdf8;
+    transform: rotate(45deg) translate(-1px, 1px);
+}
+
+#home {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container-home img {
+    width: 160px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 4px solid #38bdf8;
+}
+
+.container-home h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.container-home h3 {
+    font-weight: 400;
+    color: #94a3b8;
+}
+
+#about {
+    padding: 100px 20px;
+}
+
+#about .container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+#about p {
+    line-height: 1.8;
+    color: #000000;
+}
+
+#skill {
+    padding: 100px 20px;
+}
+
+.skill-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #000000;
+}
+
+.skill-container {
+    max-width: 700px;
+    margin: auto;
+}
+
+.skill-card {
+    margin-bottom: 25px;
+}
+
+.skill-name {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 12px;
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    border-radius: 10px;
+    animation: fill 2s ease forwards;
+}
+
+.skill-fill.html {
+    width: 75%;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+}
+
+.skill-fill.css {
+    width: 70%;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.skill-fill.js {
+    width: 70%;
+    background: linear-gradient(90deg, #facc15, #eab308);
+}
+
+.skill-fill.fotografi {
+    width: 100%;
+    background: linear-gradient(90deg, #ff0800, #b90600);
+}
+
+@keyframes fill {
+    from {
+        width: 0;
+    }
+}
+
+.gallery {
+    padding: 100px 20px;
+}
+
+.gallery-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #000000;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(56, 189, 284, 0.4);
+}
+
+.contact {
+    padding: 100px 20px;
+}
+
+.contact-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #000000;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.contact-from {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-from input,
+.contact-from textarea {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-family: inherit;
+}
+
+.contact-from button  {
+    padding: 12px;
+    background: #38dbf8;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-from button:hover {
+    background: #0ea5e9;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .menu-toggle {
+        display: flex;
+    }
+    nav ul {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        height: 50vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        z-index: -1;
+        width: 100%;
+        transform: translateY(-200%);
+        transition: transfrom 0.7s ease-out;
+    }
+    nav-menu.active {
+        transform: translateY(0);
+    }
+    nav ul.slide {
+        transform: translateX(0);
+        transition: transfrom 0.7s ease-out;
+    }
+    nav ul li a {
+        font: 1.1rem;
+        padding: 10px 0;
+    }
+    .menu-toogle:active span {
+        transform: scale(0.9);
+    }
+    .menu-toggle input:checked ~ span:nth-child(2) {
+        opacity: 0;
+    }
+}
+
+footer {
+    background-color: #111827;
+    color: rgb(255, 253, 253);
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 15px;
+    text-decoration: none;
+}
